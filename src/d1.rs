@@ -1,11 +1,11 @@
-use std::fs::File;
-use std::io::{self, BufRead};
 use std::vec::Vec;
 
+use crate::util;
+
 fn read_numbers() -> Vec<i64> {
-    io::BufReader::new(File::open("./data/d1p1.txt").unwrap())
-        .lines()
-        .map(|l| l.unwrap().parse::<i64>().unwrap())
+    util::file_lines("./data/d1p1.txt")
+        .iter()
+        .map(|l| l.parse::<i64>().unwrap())
         .collect()
 }
 
