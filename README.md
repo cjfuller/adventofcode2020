@@ -1,1 +1,1 @@
-Advent of code 2020 solutions, learning rust better.
+Advent of code 2020 solutions. Goal: learning rust better.
