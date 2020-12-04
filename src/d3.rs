@@ -48,6 +48,7 @@ fn count_along_slope(grid: &[Vec<bool>], horiz_step: usize, vert_step: usize) ->
     count_along_slope_with_state(grid, horiz_step, vert_step, 0, 0)
 }
 
+#[allow(dead_code)]
 pub fn solve() {
     println!("Part 1");
     let input = parse_input();

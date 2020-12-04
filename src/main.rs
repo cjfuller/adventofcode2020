@@ -1,6 +1,7 @@
 mod d1;
 mod d2;
 mod d3;
+mod d4;
 mod util;
 
 fn main() {
@@ -8,5 +9,6 @@ fn main() {
     // d1::solvep2()
     // d2::solvep1()
     // d2::solvep2()
-    d3::solve()
+    // d3::solve()
+    d4::solve()
 }
