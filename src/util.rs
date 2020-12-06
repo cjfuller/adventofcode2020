@@ -8,3 +8,17 @@ pub fn file_lines(filename: &str) -> Vec<String> {
         .map(|s| s.unwrap())
         .collect()
 }
+
+pub fn partition_by_blank_lines(lines: Vec<String>) -> Vec<Vec<String>> {
+    let mut partitioned = vec![vec![]];
+
+    lines.iter().for_each(|line| {
+        if line == "" {
+            partitioned.push(vec![]);
+        } else {
+            let last = partitioned.last_mut().unwrap();
+            last.push(line.clone());
+        }
+    });
+    partitioned
+}

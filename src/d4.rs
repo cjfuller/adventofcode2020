@@ -266,17 +266,12 @@ fn parse_passport(s: &str) -> Option<Passport> {
 
 fn parse_passports() -> Vec<Option<Passport>> {
     let lines = util::file_lines("./data/d4.txt");
-    let mut passport_lines: Vec<String> = vec!["".to_string()];
-    lines.iter().for_each(|line| {
-        if line == "" {
-            passport_lines.push("".to_string())
-        } else {
-            let last = passport_lines.last_mut().unwrap();
-            last.push_str(" ");
-            last.push_str(line);
-        }
-    });
-    passport_lines.iter().map(|s| parse_passport(&s)).collect()
+    let partitioned = util::partition_by_blank_lines(lines);
+    partitioned
+        .iter()
+        .map(|strings| strings.join(" "))
+        .map(|s| parse_passport(&s))
+        .collect()
 }
 
 fn apply_extra_validation(passport: &Option<Passport>) -> Option<Passport> {
